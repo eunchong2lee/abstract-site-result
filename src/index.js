@@ -69,10 +69,6 @@ class Article {
         this.comment = [];
     }
 
-    startsWitd(boardname) {
-        return Boolean(this.id.includes(boardname));
-    }
-
     reply(comment) {
         if (this.flag === 0) {
             throw new Error();
