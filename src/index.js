@@ -13,7 +13,7 @@ class Site {
                 throw new Error();
             }
         }
-        board.flag = 1;
+        board.flag = true;
         return this.boards.push(board);
     }
 
@@ -33,15 +33,15 @@ class Board extends Site {
             throw new Error();
         }
         super(board);
-        this.flag = 0;
+        this.flag = false;
         this.article = [];
     }
 
     publish(article) {
-        if (this.flag === 0) {
+        if (this.flag === false) {
             throw new Error();
         }
-        article.flag = 1;
+        article.flag = true;
         article.id = `${this.board}-${Math.floor(Math.random())}`;
         this.article.push(
             article,
@@ -65,12 +65,12 @@ class Article {
         this.author = author;
         this.id;
         this.createdDate = new Date().toISOString();
-        this.flag = 0;
+        this.flag = false;
         this.comment = [];
     }
 
     reply(comment) {
-        if (this.flag === 0) {
+        if (this.flag === false) {
             throw new Error();
         }
         this.comment.push(comment);
