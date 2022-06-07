@@ -1,10 +1,6 @@
 class Site {
-    constructor(board) {
-        if (board === undefined) {
+    constructor() {
             this.boards = [];
-        } else {
-            this.board = board;
-        }
     }
 
     addBoard(board) {
@@ -27,12 +23,12 @@ class Site {
     }
 }
 
-class Board extends Site {
+class Board {
     constructor(board) {
         if (!board) {
             throw new Error();
         }
-        super(board);
+        this.board = board;
         this.flag = false;
         this.article = [];
     }
@@ -45,8 +41,6 @@ class Board extends Site {
         article.id = `${this.board}-${Math.floor(Math.random())}`;
         this.article.push(
             article,
-            // id: article.id,
-            // createdDate: new Date().toISOString(),
         );
     }
 
